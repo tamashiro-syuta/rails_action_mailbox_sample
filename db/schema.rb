@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 2022_12_20_142735) do
 
   create_table "comments", force: :cascade do |t|
     t.string "body", null: false
-    t.integer "creater_id", null: false
+    t.integer "creator_id", null: false
     t.integer "board_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_comments_on_board_id"
-    t.index ["creater_id"], name: "index_comments_on_creater_id"
+    t.index ["creator_id"], name: "index_comments_on_creator_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,5 +65,5 @@ ActiveRecord::Schema.define(version: 2022_12_20_142735) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "boards"
-  add_foreign_key "comments", "users", column: "creater_id"
+  add_foreign_key "comments", "users", column: "creator_id"
 end
